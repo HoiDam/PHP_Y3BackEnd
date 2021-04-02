@@ -2,8 +2,8 @@
 // -- include libarary--------
 require '../vendor/autoload.php'; //slim framwork
 require '../src/config/db.php'; //db
-require '/util.php'; //common util functions
-
+require '../function/util.php'; //common util functions
+require '../function/user.php'; //user functions
 // ---------------------------------
 
 // --- HTTP request -------------------------------------
@@ -12,10 +12,9 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 // ------------------------------------------------------
 
-
 $app = new \Slim\App;
 
-// --- Routes -------------------------------------------------------
+// --- Test Routes -------------------------------------------------------
 $app->get('/', function (Request $req,  Response $res, $args = []) {
     $res = 'wrong method';
 
@@ -24,12 +23,11 @@ $app->get('/', function (Request $req,  Response $res, $args = []) {
     return $res;
 });
 
-$app->get('/blockcypher', function (Request $req,  Response $res, $args = []) {
+$app->get('/bc/test', function (Request $req,  Response $res, $args = []) {
   $res = '';
-
-  $token = '7a66a3ce406e4871b7694b4d24abca13';
-
-  return $res;
+  $url = 'https://api.blockcypher.com/v1/btc/main';
+  $res=geturl($url);
+  return json_encode($res);
 });
 
 $app->get('/api/test', function (Request $req,  Response $res, $args = []) {
@@ -47,8 +45,21 @@ $app->get('/api/test', function (Request $req,  Response $res, $args = []) {
   }
     return json_encode(array("msg"=>$res));
 });
-// ------------------------------------------------------------------
 
+// --- User Routes -------------------------------------------------------
+$app->post('/user/login', function (Request $req, Response $res, $arg){
+
+  $input = $req->getParsedBody();
+  $email = $input['email'];
+  $password = $input['password'];
+
+  $res = user_login($email,$password);
+
+  return json_encode($res);
+});
+
+
+// -----------------------------------------------------------------------
 $app->run();
 
 ?>
