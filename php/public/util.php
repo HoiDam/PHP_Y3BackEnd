@@ -1,6 +1,5 @@
 <?php
 
- 
 function finduser($token) {
   
   $current = date('Y-m-d H:i:s');

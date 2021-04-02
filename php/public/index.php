@@ -1,14 +1,17 @@
 <?php
-// --- HTTP request -------------------------------------
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
-// ------------------------------------------------------
-
 // -- include libarary--------
 require '../vendor/autoload.php'; //slim framwork
 require '../src/config/db.php'; //db
 require '/util.php'; //common util functions
+
 // ---------------------------------
+
+// --- HTTP request -------------------------------------
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
+
+// ------------------------------------------------------
+
 
 $app = new \Slim\App;
 
@@ -19,6 +22,14 @@ $app->get('/', function (Request $req,  Response $res, $args = []) {
     $token = "fd2cf386-b0cf-41c4-9f28-2963b398a51d";
     $res = finduser($token);
     return $res;
+});
+
+$app->get('/blockcypher', function (Request $req,  Response $res, $args = []) {
+  $res = '';
+
+  $token = '7a66a3ce406e4871b7694b4d24abca13';
+
+  return $res;
 });
 
 $app->get('/api/test', function (Request $req,  Response $res, $args = []) {
