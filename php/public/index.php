@@ -14,15 +14,14 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 // ------------------------------------------------------
 
-$url = "https://api.blockcypher.com/v1/btc/test3";
-
 $app = new \Slim\App;
 
 // --- Test Routes -------------------------------------------------------
 $app->get('/', function (Request $req,  Response $res, $args = []) {
     $status = "failed";
-    $res = 'wrong method';
-    return json_encode(msgPack($status,$res));
+    $msg = 'wrong method';
+    $res = msgPack($status,$msg);
+    return json_encode($res);
 });
 
 $app->get('/api/test', function (Request $req,  Response $res, $args = []) {
@@ -70,6 +69,19 @@ $app->post('/bc/wallet/add', function (Request $req,  Response $res, $args ) {
 
   });
 
+$app->post('/bc/wallet/list', function (Request $req,  Response $res, $args ) {
+  try {
+    $input = $req->getParsedBody();
+    $token = $input['token'];
+  }
+  catch (Exception $e){
+    return json_encode(msgPack("failed","parameters missing"));
+  }
+  return json_encode(listWallet($token));
+  
+  });
+
+
 $app->post('/bc/wallet/delete', function (Request $req,  Response $res, $args ) {
   try {
     $input = $req->getParsedBody();
@@ -79,10 +91,63 @@ $app->post('/bc/wallet/delete', function (Request $req,  Response $res, $args ) 
   catch (Exception $e){
     return json_encode(msgPack("failed","parameters missing"));
   }
-  $apiContexts = genApiContext();
-  return json_encode(deleteWallet($apiContexts,$token,$count));
+
+  return json_encode(deleteWallet($token,$count));
 
   });
+
+$app->post('/bc/address/add', function (Request $req,  Response $res, $args ) {
+    try {
+      $input = $req->getParsedBody();
+      $token = $input['token'];
+      $count = $input["wallet_user_count"];
+    }
+    catch (Exception $e){
+      return json_encode(msgPack("failed","parameters missing"));
+    }
+    $apiContexts = genApiContext();
+    return json_encode(addAddress($apiContexts,$token,$count));
+  
+  });  
+
+$app->post('/bc/address/list', function (Request $req,  Response $res, $args ) {
+    try {
+      $input = $req->getParsedBody();
+      $token = $input['token'];
+      $count = $input["wallet_user_count"];
+    }
+    catch (Exception $e){
+      return json_encode(msgPack("failed","parameters missing"));
+    }
+    return json_encode(listAddress($token,$count));
+
+});    
+
+$app->post('/bc/address/detail', function (Request $req,  Response $res, $args ) {
+  try {
+    $input = $req->getParsedBody();
+    $address = $input["address"];
+  }
+  catch (Exception $e){
+    return json_encode(msgPack("failed","parameters missing"));
+  }
+  return json_encode(detailAddress($address));
+
+});  
+
+$app->post('/bc/address/delete', function (Request $req,  Response $res, $args ) {
+  try {
+    $input = $req->getParsedBody();
+    $token = $input['token'];
+    $count = $input["wallet_user_count"];
+    $address = $input["address"];
+  }
+  catch (Exception $e){
+    return json_encode(msgPack("failed","parameters missing"));
+  }
+  return json_encode(deleteAddress($token,$count,$address));
+
+});  
 // ---------------------------------------------------------------
 $app->run();
 

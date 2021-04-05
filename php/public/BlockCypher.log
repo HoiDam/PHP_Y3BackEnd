@@ -1743,3 +1743,98 @@
 [05-04-2021 06:39:51] BlockCypher\Validation\ModelAccessorValidator: DEBUG	: Missing Accessor: BlockCypher\Api\TX:setBlockIndex. You might be using older version of SDK. If not, create an issue at https://github.com/blockcypher/php-client/issues
 [05-04-2021 06:39:51] BlockCypher\Validation\ModelAccessorValidator: DEBUG	: Missing Accessor: BlockCypher\Api\TX:setVsize. You might be using older version of SDK. If not, create an issue at https://github.com/blockcypher/php-client/issues
 [05-04-2021 06:39:51] BlockCypher\Validation\ModelAccessorValidator: DEBUG	: Missing Accessor: BlockCypher\Api\TX:setVsize. You might be using older version of SDK. If not, create an issue at https://github.com/blockcypher/php-client/issues
+[05-04-2021 11:48:15] BlockCypher\Core\BlockCypherHttpConnection: INFO	: POST https://api.blockcypher.com/v1/btc/test3/addrs?token=7a66a3ce406e4871b7694b4d24abca13
+[05-04-2021 11:48:17] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[05-04-2021 11:48:18] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Request Headers 	: POST /v1/btc/test3/addrs?token=7a66a3ce406e4871b7694b4d24abca13 HTTP/1.1, Host: api.blockcypher.com, Accept: */*, Content-Type: application/json, User-Agent: BlockCypherSDK/BlockCypher-PHP-SDK 1.5.0 (lang=PHP;v=5.6.25;bit=32;os=Windows_NT_10.0;machine=AMD64;openssl=1.0.1t;curl=7.50.1), BlockCypher-Request-Id: 7648161762329428668, Content-Length: 0, , 
+[05-04-2021 11:48:18] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: No Request Payload
+--------------------------------------------------------------------------------------------------------------------------------
+
+[05-04-2021 11:48:18] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Response Status 	: 201
+[05-04-2021 11:48:18] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Headers	: HTTP/1.1 201 Created, Date: Mon, 05 Apr 2021 11:48:18 GMT, Content-Type: application/json, Content-Length: 281, Connection: keep-alive, Set-Cookie: __cfduid=dc518c838153bdb81fa64a381b551a7971617623297; expires=Wed, 05-May-21 11:48:17 GMT; path=/; domain=.blockcypher.com; HttpOnly; SameSite=Lax, Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Methods: GET, POST, PUT, DELETE, Access-Control-Allow-Origin: *, X-Ratelimit-Remaining: 198, CF-Cache-Status: DYNAMIC, cf-request-id: 094375c76a0000230817afe000000001, Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct", Server: cloudflare, CF-RAY: 63b28bebde302308-HKG, , 
+[05-04-2021 11:48:18] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Data 	: {
+  "private": "671792b7395806386b1994c48d095303d9101ebb5077f8b7e4d279e2ff5203a2",
+  "public": "02bb2d15b884ccb147def74cd027e589cc3199caf4848bf252d3307c4a4550bfe8",
+  "address": "n4URDYfT4mbYbu59Nczk6KKgfHtznK3pEV",
+  "wif": "cR36htKfd4rvvviD7NYYbvaBPHLPUnyMrkyq4U4EpyupASxwnEcy"
+}
+
+================================================================================================================================
+
+[05-04-2021 11:55:04] BlockCypher\Core\BlockCypherHttpConnection: INFO	: POST https://api.blockcypher.com/v1/btc/test3/addrs?token=7a66a3ce406e4871b7694b4d24abca13
+[05-04-2021 11:55:04] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[05-04-2021 11:55:05] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Request Headers 	: POST /v1/btc/test3/addrs?token=7a66a3ce406e4871b7694b4d24abca13 HTTP/1.1, Host: api.blockcypher.com, Accept: */*, Content-Type: application/json, User-Agent: BlockCypherSDK/BlockCypher-PHP-SDK 1.5.0 (lang=PHP;v=5.6.25;bit=32;os=Windows_NT_10.0;machine=AMD64;openssl=1.0.1t;curl=7.50.1), BlockCypher-Request-Id: 7648161762370364681, Content-Length: 0, , 
+[05-04-2021 11:55:05] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: No Request Payload
+--------------------------------------------------------------------------------------------------------------------------------
+
+[05-04-2021 11:55:05] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Response Status 	: 201
+[05-04-2021 11:55:05] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Headers	: HTTP/1.1 201 Created, Date: Mon, 05 Apr 2021 11:55:05 GMT, Content-Type: application/json, Content-Length: 281, Connection: keep-alive, Set-Cookie: __cfduid=d0c4de4711ff1384de0afbb14fe490dce1617623704; expires=Wed, 05-May-21 11:55:04 GMT; path=/; domain=.blockcypher.com; HttpOnly; SameSite=Lax, Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Methods: GET, POST, PUT, DELETE, Access-Control-Allow-Origin: *, X-Ratelimit-Remaining: 199, CF-Cache-Status: DYNAMIC, cf-request-id: 09437bfb3a000012431db20000000001, Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct", Server: cloudflare, CF-RAY: 63b295d858341243-HKG, , 
+[05-04-2021 11:55:05] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Data 	: {
+  "private": "9604b1b6521506c650dabfebb6986649e95f3638a0431c16a777293892afbd37",
+  "public": "022be0f8fc629fea115acfc4aeb1e7a7b90200adeae2b07fb0cca27d122344e7ad",
+  "address": "mgTE8awonN4GuXZxBLrpVRmWDgbfpyYESo",
+  "wif": "cScKNwVbAnQiapkBtYGhc5shBuTAnWr7uAAfkpFYpmBi3dfjJFn8"
+}
+
+================================================================================================================================
+
+[05-04-2021 11:58:14] BlockCypher\Core\BlockCypherHttpConnection: INFO	: POST https://api.blockcypher.com/v1/btc/test3/addrs?token=7a66a3ce406e4871b7694b4d24abca13
+[05-04-2021 11:58:14] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[05-04-2021 11:58:15] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Request Headers 	: POST /v1/btc/test3/addrs?token=7a66a3ce406e4871b7694b4d24abca13 HTTP/1.1, Host: api.blockcypher.com, Accept: */*, Content-Type: application/json, User-Agent: BlockCypherSDK/BlockCypher-PHP-SDK 1.5.0 (lang=PHP;v=5.6.25;bit=32;os=Windows_NT_10.0;machine=AMD64;openssl=1.0.1t;curl=7.50.1), BlockCypher-Request-Id: 7648161762389321080, Content-Length: 0, , 
+[05-04-2021 11:58:15] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: No Request Payload
+--------------------------------------------------------------------------------------------------------------------------------
+
+[05-04-2021 11:58:15] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Response Status 	: 201
+[05-04-2021 11:58:15] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Headers	: HTTP/1.1 201 Created, Date: Mon, 05 Apr 2021 11:58:16 GMT, Content-Type: application/json, Content-Length: 281, Connection: keep-alive, Set-Cookie: __cfduid=d9992b5df5b5aef5560a221fa289e25a21617623895; expires=Wed, 05-May-21 11:58:15 GMT; path=/; domain=.blockcypher.com; HttpOnly; SameSite=Lax, Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Methods: GET, POST, PUT, DELETE, Access-Control-Allow-Origin: *, X-Ratelimit-Remaining: 196, CF-Cache-Status: DYNAMIC, cf-request-id: 09437ee4250000d1d3de8f6000000001, Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct", Server: cloudflare, CF-RAY: 63b29a803d96d1d3-HKG, , 
+[05-04-2021 11:58:16] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Data 	: {
+  "private": "b2f06e423b3dae5b173ab30ae494331c36b946dbd37d5158d5b796833eccd36c",
+  "public": "03fd69a2ba83d9ba1bf650f4c31dfcad53596aa0494171e0382e922b98d8e734c7",
+  "address": "n3hL2KeqJUhPGGZtbhScSPny4s5wA2VHZu",
+  "wif": "cTaY3TCtznyuNa1dmJda7dE7f7obzGjgCemjagixWknPVYRa4QHy"
+}
+
+================================================================================================================================
+
+[05-04-2021 02:01:37] BlockCypher\Core\BlockCypherHttpConnection: INFO	: GET https://api.blockcypher.com/v1/btc/test3/addrs/mrHuHH8uJe3kVnDkPMjzLogeNoqFNnUv3V/balance?token=7a66a3ce406e4871b7694b4d24abca13
+[05-04-2021 02:01:38] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[05-04-2021 02:01:39] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Request Headers 	: GET /v1/btc/test3/addrs/mrHuHH8uJe3kVnDkPMjzLogeNoqFNnUv3V/balance?token=7a66a3ce406e4871b7694b4d24abca13 HTTP/1.1, Host: api.blockcypher.com, Accept: */*, Content-Type: application/json, User-Agent: BlockCypherSDK/BlockCypher-PHP-SDK 1.5.0 (lang=PHP;v=5.6.25;bit=32;os=Windows_NT_10.0;machine=AMD64;openssl=1.0.1t;curl=7.50.1), , 
+[05-04-2021 02:01:39] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: No Request Payload
+--------------------------------------------------------------------------------------------------------------------------------
+
+[05-04-2021 02:01:39] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Response Status 	: 200
+[05-04-2021 02:01:39] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Headers	: HTTP/1.1 200 OK, Date: Mon, 05 Apr 2021 14:01:37 GMT, Content-Type: application/json, Transfer-Encoding: chunked, Connection: keep-alive, Set-Cookie: __cfduid=d98afbf0600a6fd3d26e8fa620ebcbe881617631296; expires=Wed, 05-May-21 14:01:36 GMT; path=/; domain=.blockcypher.com; HttpOnly; SameSite=Lax, Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Methods: GET, POST, PUT, DELETE, Access-Control-Allow-Origin: *, X-Ratelimit-Remaining: 199, CF-Cache-Status: DYNAMIC, cf-request-id: 0943efd2fa0000242805abe000000001, Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct", Server: cloudflare, CF-RAY: 63b34f3189722428-HKG, , 
+[05-04-2021 02:01:39] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Data 	: {
+  "address": "mrHuHH8uJe3kVnDkPMjzLogeNoqFNnUv3V",
+  "total_received": 1409500,
+  "total_sent": 1409500,
+  "balance": 0,
+  "unconfirmed_balance": 0,
+  "final_balance": 0,
+  "n_tx": 2,
+  "unconfirmed_n_tx": 0,
+  "final_n_tx": 2
+}
+
+================================================================================================================================
+
+[05-04-2021 02:02:22] BlockCypher\Core\BlockCypherHttpConnection: INFO	: GET https://api.blockcypher.com/v1/btc/test3/addrs/mrHuHH8uJe3kVnDkPMjzLogeNoqFNnUv3V/balance?token=7a66a3ce406e4871b7694b4d24abca13
+[05-04-2021 02:02:22] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[05-04-2021 02:02:23] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Request Headers 	: GET /v1/btc/test3/addrs/mrHuHH8uJe3kVnDkPMjzLogeNoqFNnUv3V/balance?token=7a66a3ce406e4871b7694b4d24abca13 HTTP/1.1, Host: api.blockcypher.com, Accept: */*, Content-Type: application/json, User-Agent: BlockCypherSDK/BlockCypher-PHP-SDK 1.5.0 (lang=PHP;v=5.6.25;bit=32;os=Windows_NT_10.0;machine=AMD64;openssl=1.0.1t;curl=7.50.1), , 
+[05-04-2021 02:02:23] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: No Request Payload
+--------------------------------------------------------------------------------------------------------------------------------
+
+[05-04-2021 02:02:23] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Response Status 	: 200
+[05-04-2021 02:02:23] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Headers	: HTTP/1.1 200 OK, Date: Mon, 05 Apr 2021 14:02:21 GMT, Content-Type: application/json, Transfer-Encoding: chunked, Connection: keep-alive, Set-Cookie: __cfduid=d090aadd8d6a3bf7560bb3c489f3139631617631340; expires=Wed, 05-May-21 14:02:20 GMT; path=/; domain=.blockcypher.com; HttpOnly; SameSite=Lax, Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Methods: GET, POST, PUT, DELETE, Access-Control-Allow-Origin: *, X-Ratelimit-Remaining: 198, CF-Cache-Status: DYNAMIC, cf-request-id: 0943f080b5000032d7329a3000000001, Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct", Server: cloudflare, CF-RAY: 63b350478ab032d7-HKG, , 
+[05-04-2021 02:02:23] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Data 	: {
+  "address": "mrHuHH8uJe3kVnDkPMjzLogeNoqFNnUv3V",
+  "total_received": 1409500,
+  "total_sent": 1409500,
+  "balance": 0,
+  "unconfirmed_balance": 0,
+  "final_balance": 0,
+  "n_tx": 2,
+  "unconfirmed_n_tx": 0,
+  "final_n_tx": 2
+}
+
+================================================================================================================================
+

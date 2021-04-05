@@ -65,7 +65,7 @@ function delurl($url,$data){
 }
 
 function msgPack($res,$reason=""){
-  return array("msg"=>$res,"reason"=>$reason);
+  return array("status"=>$res,"msg"=>$reason);
 }
 
 function getCurrentTime(){
