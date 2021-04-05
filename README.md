@@ -52,6 +52,17 @@ Function 9: Accept/Decline transaction request
 ##seed_pw
 bitcoin1
 bitcoin2
+bitcoin3
+
+##wallet address
+1 :mm4RzpyXnfnLg3aTHUCxPdYFjZS2bihB77
+2 :muiiiiKf1scbcMy5X8WUJrp9G9YqbQo6Qi
+3 :mrM8eqUyoumiEWTSyT4GVrJ8rBT8eJxUMq
+
+##coins address
+1 :n1Cfd9k5cd33R53T8quAXWYXWxe1QzepJi
+2 :mmEcbSvNC4cFAHiV8xyxfPp9GtNeLYmKW8
+3 :mjSyXgW2jzh8NZQxuXnHBWqvpNknvjgvmA
 
 ##blockcypher token
 7a66a3ce406e4871b7694b4d24abca13

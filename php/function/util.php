@@ -2,24 +2,21 @@
 
 function finduser($token) {
   
-  $current = date('Y-m-d H:i:s');
-  $sql = "SELECT user_id FROM db_bitcoin.session WHERE session_id = '{$token}' AND expire_time < '{$current}' LIMIT 1; ";
+  $current = getCurrentTime();
+  $sql = "SELECT user_id FROM db_bitcoin.session WHERE session_id = '{$token}' AND expire_time > '{$current}' LIMIT 1; ";
 
   try {
     $db = new db();
     $db = $db->connect();
     $stmt = $db->query( $sql );
     $res = $stmt->fetch()["user_id"];
-    if (is_null($res)) //check find or not
-      $res = -1 ; //not found 
-    echo $res;
+    if (is_null($res)){ //check find or not
+      $res = -1 ; //not found
+    } 
     $db = null; // clear db object
             
   } catch( PDOException $e ) {
-
-    // show error message as Json format
-    $res =  "Invalid Action";
-    $res =  $e->getMessage();
+    $res =  $e;
   }
     return $res;
 }
@@ -38,7 +35,6 @@ function geturl($url){
   return $output;
 }
 
-
 function posturl($url,$data){
   $data  = json_encode($data);    
   $headerArray =array("Content-type:application/json;charset='utf-8'","Accept:application/json");
@@ -53,4 +49,29 @@ function posturl($url,$data){
   $output = curl_exec($curl);
   curl_close($curl);
   return json_decode($output,true);
+}
+
+function delurl($url,$data){
+  $data  = json_encode($data);
+  $ch = curl_init();
+  curl_setopt ($ch,CURLOPT_URL,$url);
+  curl_setopt ($ch, CURLOPT_HTTPHEADER, array('Content-type:application/json'));
+  curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt ($ch, CURLOPT_CUSTOMREQUEST, "DELETE");   
+  curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+  $output = curl_exec($ch);
+  curl_close($ch);
+  $output = json_decode($output,true);
+}
+
+function msgPack($res,$reason=""){
+  return array("msg"=>$res,"reason"=>$reason);
+}
+
+function getCurrentTime(){
+  return date('Y-m-d H:i:s');
+}
+
+function genWalletID($user_id,$count){
+  return "user{$user_id}wallet{$count}";
 }
