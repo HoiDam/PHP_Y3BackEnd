@@ -24,22 +24,6 @@ $app->get('/', function (Request $req,  Response $res, $args = []) {
     return json_encode($res);
 });
 
-$app->get('/api/test', function (Request $req,  Response $res, $args = []) {
-	$sql = "SELECT * FROM db_bitcoin.user;";
-	try {
-    $db = new db();
-    $db = $db->connect();
-    $stmt = $db->query( $sql );
-    // $res = "success" ;
-    $res = $stmt->fetch();
-    $db = null; // clear db object
-  } catch( PDOException $e ) {
-    // show error message as Json format
-    $res =  $e->getMessage();
-  }
-    return json_encode(msgPack($res));
-});
-
 // --- User Routes -------------------------------------------------------
 $app->post('/user/login', function (Request $req, Response $res, $arg){
 
@@ -47,11 +31,25 @@ $app->post('/user/login', function (Request $req, Response $res, $arg){
   $email = $input['email'];
   $password = $input['password'];
 
-  $res = user_login($email,$password);
+  $res = userLogin($email,$password);
 
   return json_encode($res);
 });
 
+$app->post('/user/funds/edit', function (Request $req, Response $res, $arg){
+  try {
+    $input = $req->getParsedBody();
+    $token = $input['token'];
+    $method = $input['method'];
+    $amount = $input["amount"];
+  }
+  catch (Exception $e){
+    return json_encode(msgPack("failed","parameters missing"));
+  }
+  
+  return json_encode(editFunds($token,$method,$amount));
+
+});
 
 // -----------------------------------------------------------------------
 
@@ -67,7 +65,7 @@ $app->post('/bc/wallet/add', function (Request $req,  Response $res, $args ) {
   
   return json_encode(addWallet($token));
 
-  });
+});
 
 $app->post('/bc/wallet/list', function (Request $req,  Response $res, $args ) {
   try {
@@ -79,8 +77,7 @@ $app->post('/bc/wallet/list', function (Request $req,  Response $res, $args ) {
   }
   return json_encode(listWallet($token));
   
-  });
-
+});
 
 $app->post('/bc/wallet/delete', function (Request $req,  Response $res, $args ) {
   try {
@@ -94,7 +91,7 @@ $app->post('/bc/wallet/delete', function (Request $req,  Response $res, $args ) 
 
   return json_encode(deleteWallet($token,$count));
 
-  });
+});
 
 $app->post('/bc/address/add', function (Request $req,  Response $res, $args ) {
     try {
@@ -108,7 +105,7 @@ $app->post('/bc/address/add', function (Request $req,  Response $res, $args ) {
     $apiContexts = genApiContext();
     return json_encode(addAddress($apiContexts,$token,$count));
   
-  });  
+});  
 
 $app->post('/bc/address/list', function (Request $req,  Response $res, $args ) {
     try {
@@ -148,6 +145,41 @@ $app->post('/bc/address/delete', function (Request $req,  Response $res, $args )
   return json_encode(deleteAddress($token,$count,$address));
 
 });  
+
+$app->post('/bc/transaction/create', function (Request $req,  Response $res, $args ) {
+  
+  $input = $req->getParsedBody();
+  
+  return json_encode(createTransaction($input));
+
+});  
+
+$app->post('/bc/transaction/list', function (Request $req,  Response $res, $args ) {
+  try {
+    $input = $req->getParsedBody();
+    $token = $input['token'];
+  }
+  catch (Exception $e){
+    return json_encode(msgPack("failed","parameters missing"));
+  }
+  return json_encode(listTransaction($token));
+
+}); 
+
+$app->post('/bc/transaction/action', function (Request $req,  Response $res, $args ) {
+  try {
+    $input = $req->getParsedBody();
+    $token = $input['token'];
+    $transaction_id = $input['transaction_id'];
+    $action = $input['action'];
+  }
+  catch (Exception $e){
+    return json_encode(msgPack("failed","parameters missing"));
+  }
+  return json_encode(actionTransaction($token,$transaction_id,$action));
+
+}); 
+
 // ---------------------------------------------------------------
 $app->run();
 
