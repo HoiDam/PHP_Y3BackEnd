@@ -69,7 +69,13 @@ function msgPack($res,$reason=""){
 }
 
 function getCurrentTime(){
-  return date('Y-m-d H:i:s');
+  $now = time() + (8 * 60 * 60);
+  return date("Y-m-d H:i:s",$now);
+}
+
+function getShiftedTime($hours){
+  $time = time() + ((8+$hours) * 60 * 60);
+  return date("Y-m-d H:i:s",$time);
 }
 
 function genWalletID($user_id,$count){

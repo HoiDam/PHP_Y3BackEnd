@@ -7,10 +7,6 @@ Function 1: Login
 - Login > Function: Username, PAssword (Request)
 - Response: Token (saved in frontend also DB) @ Session
 
-Function 2: Transaction History
-- Request: Token (select id from )
-- Response: Last 5 transaction records (max. 5 in sql)
-
 Function 3: Register
 - Request: Email + Username + Password
 - Response: Success/ Failed
@@ -42,7 +38,9 @@ Function 9: Accept/Decline transaction request
                 Decline > Record Remain
 - Response: Sucess/ Failed
             
-
+Function 2: Transaction History
+- Request: Token (select id from )
+- Response: Last 5 transaction records (max. 5 in sql)
 
 ##seed
 1 :camera near patch donate sweet tree flip dust capable gap gallery cube

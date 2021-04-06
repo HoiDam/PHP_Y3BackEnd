@@ -27,13 +27,30 @@ $app->get('/', function (Request $req,  Response $res, $args = []) {
 // --- User Routes -------------------------------------------------------
 $app->post('/user/login', function (Request $req, Response $res, $arg){
 
-  $input = $req->getParsedBody();
-  $email = $input['email'];
-  $password = $input['password'];
+  try {
+    $input = $req->getParsedBody();
+    $email = $input['email'];
+    $password = $input['password'];
+  }
+  catch (Exception $e){
+    return json_encode(msgPack("failed","parameters missing"));
+  }  
+  return json_encode(userLogin($email,$password));
+});
 
-  $res = userLogin($email,$password);
+$app->post('/user/register', function (Request $req, Response $res, $arg){
 
-  return json_encode($res);
+  try {
+    $input = $req->getParsedBody();
+    $email = $input['email'];
+    $nickname = $input['nickname'];
+    $password = $input['password'];
+    
+  }
+  catch (Exception $e){
+    return json_encode(msgPack("failed","parameters missing"));
+  }  
+  return json_encode(userRegister($email,$nickname,$password));
 });
 
 $app->post('/user/funds/edit', function (Request $req, Response $res, $arg){
@@ -48,6 +65,33 @@ $app->post('/user/funds/edit', function (Request $req, Response $res, $arg){
   }
   
   return json_encode(editFunds($token,$method,$amount));
+
+});
+
+$app->post('/user/info', function (Request $req, Response $res, $arg){
+
+  try {
+    $input = $req->getParsedBody();
+    $token = $input['token'];
+  }
+  catch (Exception $e){
+    return json_encode(msgPack("failed","parameters missing"));
+  }  
+  return json_encode(userInfo($token));
+});
+
+$app->post('/user/pw/edit', function (Request $req, Response $res, $arg){
+  try {
+    $input = $req->getParsedBody();
+    $email = $input['email'];
+    $old_password = $input['old_password'];
+    $new_password = $input["new_password"];
+  }
+  catch (Exception $e){
+    return json_encode(msgPack("failed","parameters missing"));
+  }
+  
+  return json_encode(changePW($email,$old_password,$new_password));
 
 });
 
